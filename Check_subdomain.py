@@ -2,7 +2,7 @@ import requests
 import time
 from tabulate import tabulate
 
-# List of subdomains to check
+
 subdomains = [
     'https://www.netflix.com/in/',
     'https://www.netflix.com/login',
@@ -21,16 +21,16 @@ def check_subdomain_status(subdomains):
     return status_list
 
 def display_status_table(status_list):
-    #table = tabulate(status_list, headers=['Subdomain', 'Status'], tablefmt='grid')
-   # print(table)
-   print("Error")
+    table = tabulate(status_list, headers=['Subdomain', 'Status'], tablefmt='grid')
+    print(table)
+  
 
 def main():
     while True:
         status_list = check_subdomain_status(subdomains)
         display_status_table(status_list)
         print(status_list)
-        time.sleep(60)  # Wait for 1 minute before checking again
+        time.sleep(60) 
 
 if __name__ == "__main__":
     main()
